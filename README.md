@@ -6,7 +6,7 @@
 
 # Basic Jenkinsfile to create a CI/CD for npm projects using docker
 
-The Jenkisfile will perform the below steps:
+The Jenkinsfile will perform the below steps:
 
   1. scm checkout 
   2. npm install --> build using a docker file to create images with tag $JOB_NAME:$JOB_NAME_v_$BUILD_NUMBER
