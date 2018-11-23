@@ -13,13 +13,13 @@ Instructions on usage:
 4. run cmd: terraform plan --> this will give us the info of the changes terraform will make on the azure
 5. run cmd: terraform apply -auto-approve --> this will start the actual execution of the .tf script to spawn different resources in azure required for running a virtual machine.
 
-# jenkins.tf 
+# Jenkins.tf 
 1. will create resource group, virtual network, subnets, security groups, port configuration etc.
 2. the most important is the custom installation of packages post re-boot. the optional "custom_data" under os_profile will execute the file customdata.txt.
 3. the customdata.txt is a configuration file passed to cloud-init in azure this file acts as an instructions to install third party packages post instance boot.
 
 # Security
-1. The above template only opens two ports viz 80 and 22 as an inbound to azure virtual machine.
+1. The above .tf script configures only two ports viz 80 and 22 as an inbound to azure virtual machine.
 
 
 # Jenkins Pipeline Emoji
