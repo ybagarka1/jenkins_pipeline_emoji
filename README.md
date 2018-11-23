@@ -18,6 +18,9 @@ Instructions on usage:
 2. the most important is the custom installation of packages post re-boot. the optional "custom_data" under os_profile will execute the file customdata.txt.
 3. the customdata.txt is a configuration file passed to cloud-init in azure this file acts as an instructions to install third party packages post instance boot.
 
+# Security
+1. The above template only opens two ports viz 80 and 22 as an inbound to azure virtual machine.
+
 
 # Jenkins Pipeline Emoji
 
