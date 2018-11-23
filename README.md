@@ -2,9 +2,21 @@
 
 Pre-requisites:
 
-1.  Install terraform on the desired server e.g. local server
-2.  Configure terraform to use Azure(Refer Azure Docs to create the required parameters using Azure Cloud Shell.
-3.  Create a simple shell script e.g. azure_params.sh to source the variable that terraform needs
+1.  Install terraform.
+2.  Configure terraform to use Azure (Refer Azure Docs to create the required parameters using Azure Cloud Shell).
+3.  Create a simple shell script that will act as a source e.g. azure_params.sh.
+
+Instructions on usage:
+1. create a directory named jenkins_vm_terraform.
+2. copy the jenkins_vm.tf into the above directory.
+3. run cmd: terraform init --> this will ensure terraform has the required plugins as per vendor installed.
+4. run cmd: terraform plan --> this will give us the info of the changes terraform will make on the azure
+5. run cmd: terraform apply -auto-approve --> this will start the actual execution of the .tf script to spwan different resources in azure required for running a virtual machine.
+
+# jenkins.tf 
+1. will create resource group, virtual network, subnets, security groups, port configuration etc.
+2. the most important is the custom installation of packages post re-boot. the optional "custom_data" under os_profile will execute the file customdata.txt.
+3. the customdata.txt is a configuration file passed to cloud-init in azure this file acts as an instructions to install third party packages post instance boot.
 
 
 # Jenkins Pipeline Emoji
