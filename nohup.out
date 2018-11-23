@@ -1,0 +1,453 @@
+[31mflag provided but not defined: -sadas[0m[0m
+[31mUsage: terraform apply [options] [DIR-OR-PLAN]
+
+  Builds or changes infrastructure according to Terraform configuration
+  files in DIR.
+
+  By default, apply scans the current directory for the configuration
+  and applies the changes appropriately. However, a path to another
+  configuration or an execution plan can be provided. Execution plans can be
+  used to only execute a pre-determined set of actions.
+
+Options:
+
+  -backup=path           Path to backup the existing state file before
+                         modifying. Defaults to the "-state-out" path with
+                         ".backup" extension. Set to "-" to disable backup.
+
+  -auto-approve          Skip interactive approval of plan before applying.
+
+  -lock=true             Lock the state file when locking is supported.
+
+  -lock-timeout=0s       Duration to retry a state lock.
+
+  -input=true            Ask for input for variables if not directly set.
+
+  -no-color              If specified, output won't contain any color.
+
+  -parallelism=n         Limit the number of parallel resource operations.
+                         Defaults to 10.
+
+  -refresh=true          Update state prior to checking for differences. This
+                         has no effect if a plan file is given to apply.
+
+  -state=path            Path to read and save state (unless state-out
+                         is specified). Defaults to "terraform.tfstate".
+
+  -state-out=path        Path to write state to that is different than
+                         "-state". This can be used to preserve the old
+                         state.
+
+  -target=resource       Resource to target. Operation will be limited to this
+                         resource and its dependencies. This flag can be used
+                         multiple times.
+
+  -var 'foo=bar'         Set a variable in the Terraform configuration. This
+                         flag can be set multiple times.
+
+  -var-file=foo          Set variables in the Terraform configuration from
+                         a file. If "terraform.tfvars" or any ".auto.tfvars"
+                         files are present, they will be automatically loaded.[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Creating...[0m
+  location:         "" => "westindia"
+  name:             "" => "jenkins"
+  tags.%:           "" => "1"
+  tags.environment: "" => "jenkins"[0m
+[0m[1mazurerm_resource_group.jenkins: Creation complete after 1s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m[0m
+[0m[1mrandom_id.randomId: Creating...[0m
+  b64:                    "" => "<computed>"
+  b64_std:                "" => "<computed>"
+  b64_url:                "" => "<computed>"
+  byte_length:            "" => "8"
+  dec:                    "" => "<computed>"
+  hex:                    "" => "<computed>"
+  keepers.%:              "" => "1"
+  keepers.resource_group: "" => "jenkins"[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Creating...[0m
+  address_space.#:     "" => "1"
+  address_space.0:     "" => "10.0.0.0/16"
+  location:            "" => "westindia"
+  name:                "" => "jenkins_network"
+  resource_group_name: "" => "jenkins"
+  subnet.#:            "" => "<computed>"
+  tags.%:              "" => "1"
+  tags.environment:    "" => "jenkins"[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Creating...[0m
+  fqdn:                         "" => "<computed>"
+  idle_timeout_in_minutes:      "" => "4"
+  ip_address:                   "" => "<computed>"
+  ip_version:                   "" => "IPv4"
+  location:                     "" => "westindia"
+  name:                         "" => "jenkins_public_ip"
+  public_ip_address_allocation: "" => "dynamic"
+  resource_group_name:          "" => "jenkins"
+  sku:                          "" => "Basic"
+  tags.%:                       "" => "1"
+  tags.environment:             "" => "jenkins"[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Creating...[0m
+  location:                                                              "" => "westindia"
+  name:                                                                  "" => "jenkins_network_security"
+  resource_group_name:                                                   "" => "jenkins"
+  security_rule.#:                                                       "" => "1"
+  security_rule.2090309246.access:                                       "" => "Allow"
+  security_rule.2090309246.description:                                  "" => ""
+  security_rule.2090309246.destination_address_prefix:                   "" => "*"
+  security_rule.2090309246.destination_address_prefixes.#:               "" => "0"
+  security_rule.2090309246.destination_application_security_group_ids.#: "" => "0"
+  security_rule.2090309246.destination_port_range:                       "" => "22"
+  security_rule.2090309246.destination_port_ranges.#:                    "" => "0"
+  security_rule.2090309246.direction:                                    "" => "Inbound"
+  security_rule.2090309246.name:                                         "" => "SSH"
+  security_rule.2090309246.priority:                                     "" => "1001"
+  security_rule.2090309246.protocol:                                     "" => "Tcp"
+  security_rule.2090309246.source_address_prefix:                        "" => "*"
+  security_rule.2090309246.source_address_prefixes.#:                    "" => "0"
+  security_rule.2090309246.source_application_security_group_ids.#:      "" => "0"
+  security_rule.2090309246.source_port_range:                            "" => "*"
+  security_rule.2090309246.source_port_ranges.#:                         "" => "0"
+  tags.%:                                                                "" => "1"
+  tags.environment:                                                      "" => "jenkins"[0m
+[0m[1mrandom_id.randomId: Creation complete after 0s (ID: gfPGpZeBaHM)[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Creating...[0m
+  access_tier:                      "" => "<computed>"
+  account_encryption_source:        "" => "Microsoft.Storage"
+  account_kind:                     "" => "Storage"
+  account_replication_type:         "" => "LRS"
+  account_tier:                     "" => "Standard"
+  enable_blob_encryption:           "" => "true"
+  enable_file_encryption:           "" => "true"
+  identity.#:                       "" => "<computed>"
+  location:                         "" => "westindia"
+  name:                             "" => "diag81f3c6a597816873"
+  primary_access_key:               "<sensitive>" => "<sensitive>"
+  primary_blob_connection_string:   "<sensitive>" => "<sensitive>"
+  primary_blob_endpoint:            "" => "<computed>"
+  primary_connection_string:        "<sensitive>" => "<sensitive>"
+  primary_file_endpoint:            "" => "<computed>"
+  primary_location:                 "" => "<computed>"
+  primary_queue_endpoint:           "" => "<computed>"
+  primary_table_endpoint:           "" => "<computed>"
+  resource_group_name:              "" => "jenkins"
+  secondary_access_key:             "<sensitive>" => "<sensitive>"
+  secondary_blob_connection_string: "<sensitive>" => "<sensitive>"
+  secondary_blob_endpoint:          "" => "<computed>"
+  secondary_connection_string:      "<sensitive>" => "<sensitive>"
+  secondary_location:               "" => "<computed>"
+  secondary_queue_endpoint:         "" => "<computed>"
+  secondary_table_endpoint:         "" => "<computed>"
+  tags.%:                           "" => "1"
+  tags.environment:                 "" => "jenkins"[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Creation complete after 2s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Still creating... (10s elapsed)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Still creating... (10s elapsed)[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Still creating... (10s elapsed)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Creation complete after 12s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Creation complete after 20s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diag81f3c6a597816873)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Still creating... (20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Creation complete after 21s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Creating...[0m
+  address_prefix:       "" => "10.0.1.0/24"
+  ip_configurations.#:  "" => "<computed>"
+  name:                 "" => "jenkins_subnet"
+  resource_group_name:  "" => "jenkins"
+  virtual_network_name: "" => "jenkins_network"[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Still creating... (10s elapsed)[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Creation complete after 11s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Creating...[0m
+  applied_dns_servers.#:                                              "" => "<computed>"
+  dns_servers.#:                                                      "" => "<computed>"
+  enable_accelerated_networking:                                      "" => "false"
+  enable_ip_forwarding:                                               "" => "false"
+  internal_dns_name_label:                                            "" => "<computed>"
+  internal_fqdn:                                                      "" => "<computed>"
+  ip_configuration.#:                                                 "" => "1"
+  ip_configuration.0.application_gateway_backend_address_pools_ids.#: "" => "<computed>"
+  ip_configuration.0.application_security_group_ids.#:                "" => "<computed>"
+  ip_configuration.0.load_balancer_backend_address_pools_ids.#:       "" => "<computed>"
+  ip_configuration.0.load_balancer_inbound_nat_rules_ids.#:           "" => "<computed>"
+  ip_configuration.0.name:                                            "" => "jenkins_ip_configuration"
+  ip_configuration.0.primary:                                         "" => "<computed>"
+  ip_configuration.0.private_ip_address_allocation:                   "" => "dynamic"
+  ip_configuration.0.public_ip_address_id:                            "" => "/subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins/providers/Microsoft.Network/publicIPAddresses/jenkins_public_ip"
+  ip_configuration.0.subnet_id:                                       "" => "/subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins/providers/Microsoft.Network/virtualNetworks/jenkins_network/subnets/jenkins_subnet"
+  location:                                                           "" => "westindia"
+  mac_address:                                                        "" => "<computed>"
+  name:                                                               "" => "jenkins_nic"
+  network_security_group_id:                                          "" => "/subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins/providers/Microsoft.Network/networkSecurityGroups/jenkins_network_security"
+  private_ip_address:                                                 "" => "<computed>"
+  private_ip_addresses.#:                                             "" => "<computed>"
+  resource_group_name:                                                "" => "jenkins"
+  tags.%:                                                             "" => "1"
+  tags.environment:                                                   "" => "jenkins"
+  virtual_machine_id:                                                 "" => "<computed>"[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Creation complete after 1s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Creating...[0m
+  availability_set_id:                                              "" => "<computed>"
+  boot_diagnostics.#:                                               "" => "1"
+  boot_diagnostics.0.enabled:                                       "" => "true"
+  boot_diagnostics.0.storage_uri:                                   "" => "https://diag81f3c6a597816873.blob.core.windows.net/"
+  delete_data_disks_on_termination:                                 "" => "false"
+  delete_os_disk_on_termination:                                    "" => "false"
+  identity.#:                                                       "" => "<computed>"
+  location:                                                         "" => "westindia"
+  name:                                                             "" => "jenkins_vm"
+  network_interface_ids.#:                                          "" => "1"
+  network_interface_ids.0:                                          "" => "/subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins/providers/Microsoft.Network/networkInterfaces/jenkins_nic"
+  os_profile.#:                                                     "" => "1"
+  os_profile.1864109500.admin_password:                             "<sensitive>" => "<sensitive>"
+  os_profile.1864109500.admin_username:                             "" => "azureuser"
+  os_profile.1864109500.computer_name:                              "" => "jenkins"
+  os_profile.1864109500.custom_data:                                "" => "<computed>"
+  os_profile_linux_config.#:                                        "" => "1"
+  os_profile_linux_config.69840937.disable_password_authentication: "" => "true"
+  os_profile_linux_config.69840937.ssh_keys.#:                      "" => "1"
+  os_profile_linux_config.69840937.ssh_keys.0.key_data:             "" => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLnEyQBj7RzcvXCvRnXOnvW5cUZAVVQTftRjT0Yzgh/lru2Wn86snWU9AAVMwv5xrUADH2D8x3m57KSceKp/GgJQbnkzQPGEWE6aXOVFDr5qTdkYiDqLlua5QveHlxAbTs8013H86wCTkk5W+VtIrkwgoNresz3NwxHGXlZB5yAawc30Sw9LITGjNR2pMdQokkVN2mTm9T5d1W5y2yBLRntM96ebTCV+525zfBt50CyTtIumH7thQUkRHWtOZf0oW5obK+mP5kH5zlEuM6tuV4qdjYvdM/WU/fBnVk6MHkLYTk0cpnfUpK0VflhD0PAadzEMCbnnspo96vGxKkp2dj yash.bagarka@RMM-LT-757"
+  os_profile_linux_config.69840937.ssh_keys.0.path:                 "" => "/home/azureuser/.ssh/authorized_keys"
+  resource_group_name:                                              "" => "jenkins"
+  storage_data_disk.#:                                              "" => "<computed>"
+  storage_image_reference.#:                                        "" => "1"
+  storage_image_reference.363552096.id:                             "" => ""
+  storage_image_reference.363552096.offer:                          "" => "UbuntuServer"
+  storage_image_reference.363552096.publisher:                      "" => "Canonical"
+  storage_image_reference.363552096.sku:                            "" => "16.04.0-LTS"
+  storage_image_reference.363552096.version:                        "" => "latest"
+  storage_os_disk.#:                                                "" => "1"
+  storage_os_disk.0.caching:                                        "" => "ReadWrite"
+  storage_os_disk.0.create_option:                                  "" => "FromImage"
+  storage_os_disk.0.disk_size_gb:                                   "" => "<computed>"
+  storage_os_disk.0.managed_disk_id:                                "" => "<computed>"
+  storage_os_disk.0.managed_disk_type:                              "" => "Premium_LRS"
+  storage_os_disk.0.name:                                           "" => "jenkins_disk"
+  storage_os_disk.0.write_accelerator_enabled:                      "" => "false"
+  tags.%:                                                           "" => "1"
+  tags.environment:                                                 "" => "jenkins"
+  vm_size:                                                          "" => "Standard_DS1_v2"[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (40s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (50s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (1m0s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (1m10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (1m20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still creating... (1m30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Creation complete after 1m35s (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 9 added, 0 changed, 0 destroyed.[0m
+[0m[1mazurerm_resource_group.jenkins: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m
+[0m[1mrandom_id.randomId: Refreshing state... (ID: QKz53NiMn6c)[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diag40acf9dcd88c9fa7)[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  [31m-[0m destroy
+[0m
+Terraform will perform the following actions:
+
+[31m  [31m-[0m [31mazurerm_network_interface.jenkins_network_interface
+[0m[0m
+[0m[31m  [31m-[0m [31mazurerm_network_security_group.jenkns_security_group
+[0m[0m
+[0m[31m  [31m-[0m [31mazurerm_public_ip.jenkins_public_ip
+[0m[0m
+[0m[31m  [31m-[0m [31mazurerm_resource_group.jenkins
+[0m[0m
+[0m[31m  [31m-[0m [31mazurerm_storage_account.jenkins_storage
+[0m[0m
+[0m[31m  [31m-[0m [31mazurerm_subnet.jenkins_subnet
+[0m[0m
+[0m[31m  [31m-[0m [31mazurerm_virtual_machine.jenkins_vm
+[0m[0m
+[0m[31m  [31m-[0m [31mazurerm_virtual_network.jenkins_network
+[0m[0m
+[0m[31m  [31m-[0m [31mrandom_id.randomId
+[0m[0m
+[0m
+[0m[1mPlan:[0m 0 to add, 0 to change, 9 to destroy.[0m
+
+[0m[1mDo you really want to destroy all resources?[0m
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  [1mEnter a value:[0m [0m
+[31m
+[1m[31mError: [0m[0m[1mDestroy cancelled.[0m
+
+[0m[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m
+[0m[1mrandom_id.randomId: Refreshing state... (ID: QKz53NiMn6c)[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diag40acf9dcd88c9fa7)[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 40s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 50s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m0s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Destruction complete after 1m35s[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diag40acf9dcd88c9fa7)[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Destruction complete after 0s[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Destruction complete after 1s[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Destruction complete after 2s[0m[0m
+[0m[1mrandom_id.randomId: Destroying... (ID: QKz53NiMn6c)[0m[0m
+[0m[1mrandom_id.randomId: Destruction complete after 0s[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet, 10s elapsed)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security, 10s elapsed)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network, 10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 50s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m0s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m50s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m0s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Destruction complete after 2m46s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 9 destroyed.[0m
+[0m[1mazurerm_resource_group.jenkins: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m
+[0m[1mrandom_id.randomId: Refreshing state... (ID: Fb_SVu0myvE)[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diag15bfd256ed26caf1)[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 40s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 50s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m0s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Destruction complete after 1m31s[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diag15bfd256ed26caf1)[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Destruction complete after 1s[0m[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Destruction complete after 1s[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Destruction complete after 3s[0m[0m
+[0m[1mrandom_id.randomId: Destroying... (ID: Fb_SVu0myvE)[0m[0m
+[0m[1mrandom_id.randomId: Destruction complete after 0s[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security, 10s elapsed)[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet, 10s elapsed)[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network, 10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 50s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m0s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m50s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m0s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Destruction complete after 2m31s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 9 destroyed.[0m
+[0m[1mazurerm_resource_group.jenkins: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m
+[0m[1mrandom_id.randomId: Refreshing state... (ID: rTSf7L3vpu8)[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diagad349fecbdefa6ef)[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Refreshing state... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 40s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 50s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m0s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m20s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...oft.Compute/virtualMachines/jenkins_vm, 1m30s elapsed)[0m[0m
+[0m[1mazurerm_virtual_machine.jenkins_vm: Destruction complete after 1m34s[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...e/storageAccounts/diagad349fecbdefa6ef)[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic)[0m[0m
+[0m[1mazurerm_storage_account.jenkins_storage: Destruction complete after 3s[0m[0m
+[0m[1mrandom_id.randomId: Destroying... (ID: rTSf7L3vpu8)[0m[0m
+[0m[1mrandom_id.randomId: Destruction complete after 0s[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-....Network/networkInterfaces/jenkins_nic, 10s elapsed)[0m[0m
+[0m[1mazurerm_network_interface.jenkins_network_interface: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...rk/publicIPAddresses/jenkins_public_ip)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security)[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet)[0m[0m
+[0m[1mazurerm_public_ip.jenkins_public_ip: Destruction complete after 0s[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...jenkins_network/subnets/jenkins_subnet, 10s elapsed)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...ecurityGroups/jenkins_network_security, 10s elapsed)[0m[0m
+[0m[1mazurerm_network_security_group.jenkns_security_group: Destruction complete after 10s[0m[0m
+[0m[1mazurerm_subnet.jenkins_subnet: Destruction complete after 11s[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-...etwork/virtualNetworks/jenkins_network, 10s elapsed)[0m[0m
+[0m[1mazurerm_virtual_network.jenkins_network: Destruction complete after 10s[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 50s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m0s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 1m50s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m0s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m10s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m20s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m30s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Still destroying... (ID: /subscriptions/9a5069b3-65e5-439c-8d79-4a81d7d40588/resourceGroups/jenkins, 2m40s elapsed)[0m[0m
+[0m[1mazurerm_resource_group.jenkins: Destruction complete after 2m47s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 9 destroyed.[0m
