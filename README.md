@@ -1,3 +1,12 @@
+# Infrastructre as code using Azure + Terraform
+
+Pre-requisites:
+
+1.  Install terraform on the desired server e.g. local server
+2.  Configure terraform to use Azure(Refer Azure Docs to create the required parameters using Azure Cloud Shell.
+3.  Create a simple shell script e.g. azure_params.sh to source the variable that terraform needs
+
+
 # Jenkins Pipeline Emoji
 
 # Jenkins Infrastructure
