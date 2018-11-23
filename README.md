@@ -1,3 +1,5 @@
+# Jenkins Pipeline Emoji
+
 # Infrastructre as code using Azure + Terraform
 
 Pre-requisites:
@@ -21,8 +23,6 @@ Instructions on usage:
 # Security
 1. The above .tf script configures only two ports viz 80 and 22 as an inbound to azure virtual machine.
 
-
-# Jenkins Pipeline Emoji
 
 # Jenkins Infrastructure
   
