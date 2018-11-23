@@ -11,7 +11,7 @@ Instructions on usage:
 2. copy the jenkins_vm.tf and customdata.txt into the above directory.
 3. run cmd: terraform init --> this will ensure terraform has the required plugins as per vendor installed.
 4. run cmd: terraform plan --> this will give us the info of the changes terraform will make on the azure
-5. run cmd: terraform apply -auto-approve --> this will start the actual execution of the .tf script to spwan different resources in azure required for running a virtual machine.
+5. run cmd: terraform apply -auto-approve --> this will start the actual execution of the .tf script to spawn different resources in azure required for running a virtual machine.
 
 # jenkins.tf 
 1. will create resource group, virtual network, subnets, security groups, port configuration etc.
