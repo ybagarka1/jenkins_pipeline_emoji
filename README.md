@@ -21,7 +21,7 @@ Instructions on usage:
 3. the customdata.txt is a configuration file passed to cloud-init in azure this file acts as an instructions to install third party packages post instance boot.
 
 # Security
-1. The above .tf script configures only two ports viz 80 and 22 as an inbound to azure virtual machine.
+1. The above .tf script configures only three ports viz 80(jenkins),8080(npm) and 22 as an inbound to azure virtual machine.
 
 
 # Jenkins Infrastructure
