@@ -1,3 +1,4 @@
+
 ############################################ terraform template
 # Create a resource group if it doesn’t exist
 resource "azurerm_resource_group" "jenkins" {
@@ -55,6 +56,28 @@ resource "azurerm_network_security_group" "jenkns_security_group" {
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "22"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+	  security_rule {
+        name                       = "JENKINS_PORT"
+        priority                   = 1002
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "80"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+	security_rule {
+        name                       = "NPM_PORT"
+        priority                   = 1003
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "8080"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
     }
@@ -131,13 +154,14 @@ resource "azurerm_virtual_machine" "jenkins_vm" {
     os_profile {
         computer_name  = "jenkins"
         admin_username = "azureuser"
+		custom_data = "${file("customdata.txt")}"
     }
 
     os_profile_linux_config {
         disable_password_authentication = true
         ssh_keys {
             path     = "/home/azureuser/.ssh/authorized_keys"
-            key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC234pA9hD313o8mToSbQ28DNhYzs4/Nm2CQI7ypErhcgXxJ1H4R2lBGSOb2u4aAxEEh03SZlseRG2THEOfTmeBcOT+snTiCqyHM9FYLGBgWve/uyy0ssThuYSPySXBwXm/j6IVMBGIUEqjrZi+MJgj/iPce56CS1PRs/LnqFMk3BapT3J7DaMOTVEmIubOaXcOEbB8i1ITDATC+xLFVvIpc/dweoKVNGvoD8pmkMiog9YvHoKjNzHIAkDy1FDzw/yqr6wxNmIR/51ai49DyEPCSmZsWSC5nmgKEPutOF2AaEgqVDVClvTp9IEEJo4v+orpS+1pmi7v8w8bq948iF6H root@dt-ice-pulse"
+            key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLnEyQBj7RzcvXCvRnXOnvW5cUZAVVQTftRjT0Yzgh/lru2Wn86snWU9AAVMwv5xrUADH2D8x3m57KSceKp/GgJQbnkzQPGEWE6aXOVFDr5qTdkYiDqLlua5QveHlxAbTs8013H86wCTkk5W+VtIrkwgoNresz3NwxHGXlZB5yAawc30Sw9LITGjNR2pMdQokkVN2mTm9T5d1W5y2yBLRntM96ebTCV+525zfBt50CyTtIumH7thQUkRHWtOZf0oW5obK+mP5kH5zlEuM6tuV4qdjYvdM/WU/fBnVk6MHkLYTk0cpnfUpK0VflhD0PAadzEMCbnnspo96vGxKkp2dj yash.bagarka@RMM-LT-757"
         }
     }
 

@@ -5,4 +5,4 @@ runcmd:
   - echo "Created by Azure terraform-vmss-cloudinit module." | sudo dd of=/tmp/terraformtest &> /dev/null
   - apt-get install docker.io -y 
   - apt-get install docker-engine -y
-  - docker run -dti -p 80:8080 jenkins:latest
+  - docker run -dti -p 80:8080 jenkins/jenkins
